@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluffyWeb - Digital Marketing & Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FEFBF6; /* Soft Cream background */
+            color: #374151; /* Dark Gray text */
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #f5f7fa, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Testimonial slider custom styles */
+        .testimonial-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Portfolio hover effect */
+        .portfolio-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .group:hover .portfolio-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">
+                <i class="fas fa-cloud mr-2 text-rose-500"></i>FluffyWeb
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-600 hover:text-rose-500 font-medium transition-colors">Home</a>
+                <a href="#services" class="text-gray-600 hover:text-rose-500 font-medium transition-colors">Services</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-rose-500 font-medium transition-colors">Portfolio</a>
+                <a href="#about" class="text-gray-600 hover:text-rose-500 font-medium transition-colors">About</a>
+                <a href="#contact" class="bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">Contact Us</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-800">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="block py-2 px-6 text-gray-600 hover:bg-rose-50">Home</a>
+            <a href="#services" class="block py-2 px-6 text-gray-600 hover:bg-rose-50">Services</a>
+            <a href="#portfolio" class="block py-2 px-6 text-gray-600 hover:bg-rose-50">Portfolio</a>
+            <a href="#about" class="block py-2 px-6 text-gray-600 hover:bg-rose-50">About</a>
+            <a href="#contact" class="block py-4 px-6 text-white bg-rose-500 text-center">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="animated-gradient text-white pt-32 pb-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-gray-800">Unleash Your Digital Potential</h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">We're FluffyWeb. A creative agency that builds beautiful websites and launches powerful marketing campaigns to help your business grow.</p>
+                <a href="#contact" class="bg-white text-rose-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-2xl">Start Your Project</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Core Services</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">From a single line of code to a full-blown marketing strategy, we've got you covered.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-rose-50/50 p-8 rounded-xl shadow-lg border border-rose-100 hover:border-rose-300 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 scroll-reveal">
+                        <div class="mb-4">
+                            <svg class="w-12 h-12 text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Web Development</h3>
+                        <p class="text-gray-600">Creating fast, responsive, and visually stunning websites tailored to your brand's unique identity.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-rose-50/50 p-8 rounded-xl shadow-lg border border-rose-100 hover:border-rose-300 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 scroll-reveal lg:scale-105 lg:shadow-xl">
+                        <div class="mb-4">
+                            <svg class="w-12 h-12 text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">SEO & SEM</h3>
+                        <p class="text-gray-600">Boosting your visibility on search engines to attract organic traffic and quality leads.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-rose-50/50 p-8 rounded-xl shadow-lg border border-rose-100 hover:border-rose-300 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 scroll-reveal">
+                         <div class="mb-4">
+                            <svg class="w-12 h-12 text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.363a1.76 1.76 0 013.417-.592V5.882z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V5.882a2.824 2.824 0 015.648 0V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.363a1.76 1.76 0 013.417-.592V5.882z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Digital Marketing</h3>
+                        <p class="text-gray-600">Comprehensive marketing strategies to build your brand awareness and engage your audience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Recent Work</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We are proud of the work we've done. Check out some of our latest projects.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group scroll-reveal relative">
+                        <img src="https://placehold.co/600x400/a3bfb8/ffffff?text=Project+One" alt="Project One" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center portfolio-overlay">
+                            <div class="text-center text-white p-4">
+                                <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                                <p class="text-sm">A complete online store solution for a fashion brand.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group scroll-reveal relative">
+                        <img src="https://placehold.co/600x400/d1bfa3/ffffff?text=Project+Two" alt="Project Two" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center portfolio-overlay">
+                            <div class="text-center text-white p-4">
+                                <h3 class="text-xl font-bold mb-2">Corporate Website</h3>
+                                <p class="text-sm">A professional website for a financial consulting firm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group scroll-reveal relative">
+                        <img src="https://placehold.co/600x400/a3a9d1/ffffff?text=Project+Three" alt="Project Three" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center portfolio-overlay">
+                            <div class="text-center text-white p-4">
+                                <h3 class="text-xl font-bold mb-2">Marketing Campaign</h3>
+                                <p class="text-sm">A successful social media campaign for a startup.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white overflow-hidden">
+             <div class="container mx-auto px-6">
+                <div class="relative md:grid md:grid-cols-12 md:gap-8 md:items-center">
+                    <!-- Image column -->
+                    <div class="relative md:col-span-5 lg:col-span-6 scroll-reveal">
+                         <div class="rounded-xl shadow-2xl overflow-hidden">
+                              <img src="https://placehold.co/600x750/f3e8ff/374151?text=Our+Team" alt="Our Team" class="w-full h-full object-cover">
+                         </div>
+                    </div>
+                    <!-- Text column -->
+                    <div class="relative md:col-span-7 lg:col-span-6 mt-8 md:mt-0 scroll-reveal">
+                        <div class="bg-rose-50/80 backdrop-blur-sm rounded-xl shadow-lg p-8 md:-ml-16 lg:-ml-24">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Who is FluffyWeb?</h2>
+                            <p class="text-gray-600 mt-4 leading-relaxed">
+                                We are a passionate team of developers, designers, and marketers who believe in the power of a great digital presence. We're not just a service provider; we're your partner in success.
+                            </p>
+                             <p class="text-gray-600 mt-4 leading-relaxed">
+                                Our mission is to combine creativity with technology to help you achieve your business goals, making the web a little more 'fluffy' and a lot more effective.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What Our Clients Say</h2>
+                    <p class="text-gray-600 mt-4">We've helped some great companies. Here's what they think.</p>
+                </div>
+                <div class="testimonial-container max-w-3xl mx-auto scroll-reveal">
+                    <div class="testimonial-track">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide p-4">
+                            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                                <p class="text-gray-600 italic mb-4">"FluffyWeb transformed our online presence. Their team is professional, creative, and delivered results beyond our expectations. Highly recommended!"</p>
+                                <p class="font-bold text-lg text-gray-800">Jane Doe</p>
+                                <p class="text-sm text-gray-500">CEO, Tech Innovators</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide p-4">
+                             <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                                <p class="text-gray-600 italic mb-4">"The best web dev agency we've worked with. They understood our vision perfectly and brought it to life with a stunning website."</p>
+                                <p class="font-bold text-lg text-gray-800">John Smith</p>
+                                <p class="text-sm text-gray-500">Founder, Creative Co.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide p-4">
+                           <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                                <p class="text-gray-600 italic mb-4">"Our organic traffic has doubled since we started working with FluffyWeb on our SEO. An absolute game-changer for our business."</p>
+                                <p class="font-bold text-lg text-gray-800">Emily White</p>
+                                <p class="text-sm text-gray-500">Marketing Director, ShopNext</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-4 space-x-2" id="testimonial-dots">
+                        <!-- Dots will be generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Ready to Start Your Project?</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Let's build something amazing together.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-xl border border-gray-200">
+                    <div class="scroll-reveal">
+                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Get in Touch</h3>
+                         <p class="text-gray-600 mb-6">Fill out the form, or if you prefer, you can reach us through one of the channels below.</p>
+                         <div class="space-y-4">
+                             <p class="flex items-center text-gray-700"><i class="fas fa-envelope mr-3 text-rose-500"></i> hello@fluffyweb.com</p>
+                             <p class="flex items-center text-gray-700"><i class="fas fa-phone mr-3 text-rose-500"></i> (123) 456-7890</p>
+                             <p class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt mr-3 text-rose-500"></i> 123 Creative Lane, Webville</p>
+                         </div>
+                    </div>
+                    <form id="contact-form" class="scroll-reveal">
+                        <div class="mb-4">
+                            <label for="name" class="block mb-2 font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-rose-500 text-gray-800" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block mb-2 font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-rose-500 text-gray-800" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block mb-2 font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-rose-500 text-gray-800" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-rose-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-rose-600 transition-colors">Send Message</button>
+                    </form>
+                    <div id="form-status" class="mt-4 text-center md:col-span-2"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                 <p class="text-lg font-bold text-gray-800"><i class="fas fa-cloud mr-2 text-rose-500"></i>FluffyWeb</p>
+                 <div class="flex space-x-4 mt-4 md:mt-0">
+                     <a href="#" class="hover:text-rose-500"><i class="fab fa-twitter text-xl"></i></a>
+                     <a href="#" class="hover:text-rose-500"><i class="fab fa-linkedin-in text-xl"></i></a>
+                     <a href="#" class="hover:text-rose-500"><i class="fab fa-github text-xl"></i></a>
+                 </div>
+            </div>
+             <div class="text-center text-gray-500 border-t border-gray-200 mt-8 pt-6">
+                <p>&copy; 2024 FluffyWeb. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+
+            // Sticky Header
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            });
+
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Testimonial Slider
+            const track = document.querySelector('.testimonial-track');
+            const slides = Array.from(track.children);
+            const dotsNav = document.getElementById('testimonial-dots');
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            let currentSlide = 0;
+
+            // Create dots
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-rose-200', 'transition-colors');
+                if (index === 0) dot.classList.add('bg-rose-500');
+                dot.addEventListener('click', () => {
+                    moveToSlide(index);
+                });
+                dotsNav.appendChild(dot);
+            });
+            const dots = Array.from(dotsNav.children);
+
+            const moveToSlide = (targetIndex) => {
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                dots[currentSlide].classList.remove('bg-rose-500');
+                dots[targetIndex].classList.add('bg-rose-500');
+                currentSlide = targetIndex;
+            };
+            
+            // Auto slide
+            setInterval(() => {
+                let nextSlide = currentSlide + 1;
+                if (nextSlide >= slides.length) {
+                    nextSlide = 0;
+                }
+                moveToSlide(nextSlide);
+            }, 5000); // Change slide every 5 seconds
+
+
+            // Contact Form Handling
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formStatus.textContent = 'Sending...';
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    formStatus.innerHTML = '<span class="text-green-500">Thank you! Your message has been sent.</span>';
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 5000);
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
